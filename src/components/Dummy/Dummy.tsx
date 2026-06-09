@@ -20,6 +20,7 @@ export const Dummy = () => {
       >
         dislike
       </button>
+      {user.like > 3 && <p style={{ color: 'red' }}>Your Profile got noticed</p>}
     </>
   )
 }
