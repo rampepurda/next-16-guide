@@ -4,13 +4,7 @@ import React, { ReactNode } from 'react'
 import { geistMono, geistSans } from '@/app/fonts'
 import { Navigation } from '@/components'
 import QueryProvider from '@/providers/tanstack/provider'
-
-const navPrimary = [
-  { title: 'Home', href: '/' },
-  { title: 'About', href: '/about' },
-  { title: 'Api Data', href: '/apiData/tanstack' },
-  { title: 'Avatar', href: '/avatar' },
-]
+import { navPrimary } from '@/configuration/navigation'
 
 export const metadata: Metadata = {
   title: 'Create Next App',

@@ -1,38 +1,42 @@
-import React, { createContext, ReactNode, useState } from 'react'
+'use client'
+
+import React, { createContext, ReactNode, use, useState } from 'react'
 
 type InitValLikesT<T> = {
-  count: T
+  user: T
   fns: {
     like: () => void
     disLike: () => void
   }
 }
 
-const intValLike: InitValLikesT<{ like: number }> = {
-  count: {
-    like: 10,
-  },
-  fns: {
-    like: () => alert('ahoj'),
-    disLike: () => null,
-  },
-}
-
-export const LikeContext = createContext<InitValLikesT<{ like: number }> | null>(intValLike)
+export const LikeContext = createContext<InitValLikesT<{ name: string; like: number }> | null>(null)
 
 export function LikeProvider({ children }: { children: ReactNode }) {
-  const [count, setCount] = useState<{ like: number }>({
+  const [user, setCount] = useState<{ name: string; like: number }>({
+    name: '',
     like: 1,
   })
   const fns = {
     like: () => {
-      alert('like was clicked')
-      return setCount({ like: count.like + 1 })
+      return setCount({ like: user.like + 1, name: 'jan malina' })
     },
     disLike: () => {
-      return setCount({ like: count.like - 1 })
+      return setCount({ like: user.like - 1, name: 'alena rychla' })
     },
   }
 
-  return <LikeContext value={{ count, fns }}>{children}</LikeContext>
+  const intValues: InitValLikesT<{ like: number; name: string }> = {
+    user,
+    fns,
+  }
+
+  return <LikeContext value={intValues}>{children}</LikeContext>
+}
+
+export function useLikeContext() {
+  const context = use(LikeContext)
+
+  if (!context) throw Error('useLikeContext must be use only within LikeProvider')
+  return context
 }
