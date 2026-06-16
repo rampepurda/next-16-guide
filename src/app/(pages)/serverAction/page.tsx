@@ -1,5 +1,5 @@
 import { fetchExternalApi } from '@/serverActions/externalApi'
-import { PokemonT, TypicodePostT } from '@/types/primary'
+import { TypicodePostT } from '@/types/primary'
 import { GET_POKEMONS_ABILITY_V2 } from '@/api-providers/graphQL-apollo/queries/pokemonQuery'
 import { query } from '@/api-providers/graphQL-apollo/apollo-server-provider'
 
@@ -10,7 +10,7 @@ export default async function AboutPage() {
     method: 'GET',
   })
 
-  const { data } = await query<{ pokemon_v2_ability: PokemonT[] | undefined }>({
+  const { data } = await query({
     query: GET_POKEMONS_ABILITY_V2,
 
     variables: {
