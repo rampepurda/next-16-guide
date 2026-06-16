@@ -10,7 +10,6 @@ export default function RootLayout({
 }>) {
   return (
     <>
-      <hr />
       <Navigation tabs={navSecondary} />
 
       {children}
