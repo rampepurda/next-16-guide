@@ -3,8 +3,10 @@ import type { Metadata } from 'next'
 import React, { ReactNode } from 'react'
 import { geistMono, geistSans } from '@/app/fonts'
 import { Navigation } from '@/components'
-import QueryProvider from '@/providers/tanstack/provider'
+import QueryProvider from '@/api-providers/tanstack/provider'
 import { navPrimary } from '@/configuration/navigation'
+import { ApolloClientProvider } from '@/api-providers/graphQL-apollo/apolloProvider'
+import { ApolloProvider } from '@apollo/client/react'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -17,14 +19,17 @@ export default function RootLayout({
   children: ReactNode
 }>) {
   return (
-    <QueryProvider>
-      <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-        <body style={{ margin: '3rem' }}>
-          <Navigation tabs={navPrimary} />
+    <ApolloClientProvider>
+      <QueryProvider>
+        <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
+          <body style={{ margin: '3rem' }}>
+            <Navigation tabs={navPrimary} />
+            <hr />
 
-          {children}
-        </body>
-      </html>
-    </QueryProvider>
+            {children}
+          </body>
+        </html>
+      </QueryProvider>
+    </ApolloClientProvider>
   )
 }
