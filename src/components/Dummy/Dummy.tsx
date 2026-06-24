@@ -1,6 +1,7 @@
 'use client'
 
 import { useLikeContext } from '@/contexts'
+import { Button } from '@/components/UI'
 
 export const Dummy = () => {
   const { user, fns } = useLikeContext()
@@ -9,17 +10,23 @@ export const Dummy = () => {
     <>
       <h2>{user.like}</h2>
       <p>Name: {user.name}</p>
-      <button onClick={() => fns.like()} type="button" style={{ width: '10%' }}>
+      <Button
+        className="btn btn-info"
+        onClick={() => fns.like()}
+        type="button"
+        style={{ width: '10%' }}
+      >
         like
-      </button>
-      <button
+      </Button>
+      <Button
+        className="btn btn-remove"
         onClick={() => fns.disLike()}
         type="button"
         disabled={user.like === 0}
         style={{ width: '10%' }}
       >
         dislike
-      </button>
+      </Button>
       {user.like > 3 && <p style={{ color: 'red' }}>Your Profile got noticed</p>}
     </>
   )

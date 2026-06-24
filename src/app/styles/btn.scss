@@ -1,0 +1,111 @@
+@import "spacing";
+@import "color";
+
+.btn {
+  cursor: pointer;
+  margin: $spacer-2 $spacer-1 $spacer-2 0;
+  border-radius: 1.3rem;
+  border: 0 none;
+  background-color: $gray;
+  padding: .5rem 1.3rem;
+  color: $white;
+  font-size: 1.2rem;
+
+  &:hover {
+    background-color:$grayLight;
+  }
+
+  &-edit {
+    background-color: $orange;
+
+    &:hover {
+      background-color:$orange;
+    }
+  }
+
+  &-info {
+    background-color: $green;
+
+    &:hover {
+      background-color: $greenDarker;
+    }
+  }
+
+  &-primary {
+    background-color: $grayDarker;
+
+    &:hover {
+      background-color:$gray;
+    }
+  }
+
+  &-remove {
+    background-color: $red;
+
+    &:hover {
+      background-color: $redDarker;
+    }
+  }
+
+  &-submit {
+    background-color: $blueLight;
+
+    &:hover {
+      background-color:$blueDark;
+    }
+  }
+
+  &-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid $grayLighter;
+    border-radius: 1.5rem;
+    background-color: transparent;
+    color: $black;
+
+    a, :hover {
+      color: $blackLighter !important;
+      text-decoration: none;
+    }
+
+    &:hover {
+      background-color: $grayLightest;
+    }
+  }
+
+  &-toggle {
+    border: 0;
+    background-color: transparent;
+    color: $black;
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
+  &-link {
+    display: inline-block;
+    margin: $spacer-3;
+    background-color: transparent;
+    padding: 0;
+    color: $blueLighter;
+    text-decoration: none;
+
+    a {
+      display: inline-block;
+      padding: 0 .5rem;
+      color: $blueLight;
+    }
+
+    &:hover {
+      background-color: transparent;
+      text-decoration: underline;
+    }
+  }
+
+  a {
+    color: $white;
+    text-decoration: none;
+  }
+}
