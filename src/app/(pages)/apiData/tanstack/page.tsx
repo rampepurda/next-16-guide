@@ -17,7 +17,7 @@ export default function ApiDataPage() {
   return (
     <>
       <h2>Tanstack</h2>
-      <button onClick={() => setIsEnabled(!isEnabled)} style={{ width: '10%' }}>
+      <button className="btn btn-submit" onClick={() => setIsEnabled(!isEnabled)}>
         Načti data
       </button>
 

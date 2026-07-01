@@ -4,8 +4,11 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import classes from './Navigation.module.scss'
 import { ReactNode, useCallback } from 'react'
+import classNames from 'classnames'
 
 type NavigationProps = {
+  classesName?: string
+  navType?: 'primary' | 'secondary'
   children?: ReactNode
   tabs: {
     href: string
@@ -13,7 +16,12 @@ type NavigationProps = {
   }[]
 }
 
-export const Navigation = ({ tabs, children }: NavigationProps) => {
+export const Navigation = ({
+  classesName,
+  navType = 'primary',
+  tabs,
+  children,
+}: NavigationProps) => {
   const pathname = usePathname()
 
   const isActiveLink = useCallback(
@@ -27,7 +35,7 @@ export const Navigation = ({ tabs, children }: NavigationProps) => {
 
   return (
     <nav>
-      <ul>
+      <ul className={classNames(classesName, navType === 'secondary' && classes.isNavSecondary)}>
         {tabs.map((tab, idx: number) => (
           <li key={idx}>
             <Link className={isActiveLink(tab.href) ? classes.isActive : ''} href={tab.href}>

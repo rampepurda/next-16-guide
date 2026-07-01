@@ -1,0 +1,129 @@
+@import "spacing";
+@import "color";
+@import "functions";
+@import "mixins";
+@import "btn";
+
+h2 {
+  @include fontSize(1.8rem, 500);
+  margin: 0 0 $spacer-3 0;
+}
+
+h3 {
+  @include fontSize(1.5rem, 500);
+  margin: 0 0 $spacer-3 0;
+}
+
+h5 {
+  @include fontSize(1.2rem, 500);
+  margin: 0 0 $spacer-3 0;
+}
+
+ul {
+  margin: $spacer-2 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    margin: 0;
+    padding: .3rem 0;
+  }
+}
+
+a {
+  color: $blackLight;
+
+  &:hover {
+    color: $black;
+  }
+}
+
+mark {
+  @include fontSize(1.1rem, 400);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  background-color: $grayLight;
+  padding: .2rem .5rem;
+
+  &-bg-color {
+    &-orange {
+      background-color: $black;
+    }
+}
+}
+
+.display {
+  &-flex,
+  &-flex-inline {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: flex-start;
+
+    &-column {
+      flex-flow: column;
+    }
+
+    &-align-items-center {
+      align-items: center;
+    }
+
+    &-align-items-start {
+      align-items: start;
+    }
+
+    &-justify-center {
+      justify-self: center;
+    }
+
+    &-justify-start {
+      justify-content: start;
+    }
+
+    &-justify-end {
+      justify-content: end;
+    }
+  }
+
+  &-flex-inline {
+    display: inline-flex;
+  }
+
+  &-grid {
+    display: grid;
+    gap: 1rem;
+
+    &-temp-nav-primary {
+      grid-template-columns: 20% auto;
+    }
+
+    &-temp-col-2 {
+      grid-template-columns: 20% auto;
+    }
+
+    &-temp-col-3 {
+      grid-template-columns: auto auto auto;
+    }
+
+    &-temp-col-4 {
+      grid-template-columns: auto auto auto auto;
+    }
+
+    &-justify-start {
+      justify-self: start;
+    }
+
+    &-justify-end {
+      justify-self: end;
+    }
+  }
+
+  &-inline {
+    display: inline;
+  }
+
+  &-visibility-hidden {
+    display: none;
+  }
+}
