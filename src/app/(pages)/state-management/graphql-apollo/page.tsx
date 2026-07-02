@@ -1,4 +1,4 @@
-export default function GraphQLApolloPage() {
+export default function ProvidersPage() {
   return (
     <div>
       <h2>
@@ -10,7 +10,7 @@ export default function GraphQLApolloPage() {
         <ul>
           <li>
             <p>
-              Message <strong>deprecated</strong>: Tato hláška se vyskutuje při použití:&nbsp;
+              Message <strong>deprecated</strong>: Tato hláška se vyskutuje při použití:{' '}
               <strong>.query, useQuery</strong>
             </p>
           </li>

@@ -8,7 +8,7 @@ export const Dummy = () => {
 
   return (
     <>
-      <h2>{user.like}</h2>
+      <h3>{user.like}</h3>
       <p>Name: {user.name}</p>
       <Button
         className="btn btn-info"

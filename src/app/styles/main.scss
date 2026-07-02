@@ -1,57 +1,109 @@
-@import "spacing";
-@import "color";
-@import "functions";
-@import "mixins";
-@import "btn";
+@use "spacing";
+@use "color";
+@use "functions";
+@use "mixins";
+@use "btn";
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  margin: 0;
+  padding: 1.5rem 1.5rem 3rem 1rem;
+  font-size: 18px;
+}
+
+h1 {
+  @include mixins.fontSize(2.1rem, 500);
+  margin: 0 0 spacing.$spacer-3 0;
+}
 
 h2 {
-  @include fontSize(1.8rem, 500);
-  margin: 0 0 $spacer-3 0;
+  @include mixins.fontSize(1.85rem, 500);
+  margin: 0 0 spacing.$spacer-3 0;
 }
 
 h3 {
-  @include fontSize(1.5rem, 500);
-  margin: 0 0 $spacer-3 0;
+  @include mixins.fontSize(1.5rem, 500);
+  margin: 0 0 spacing.$spacer-3 0;
+}
+
+h4 {
+  @include mixins.fontSize(1.3rem, 500);
+  margin: 0 0 spacing.$spacer-3 0;
 }
 
 h5 {
-  @include fontSize(1.2rem, 500);
-  margin: 0 0 $spacer-3 0;
+  @include mixins.fontSize(1.2rem, 500);
+  margin: 0 0 spacing.$spacer-3 0;
 }
 
 ul {
-  margin: $spacer-2 0;
+  margin: spacing.$spacer-3 0;
   padding: 0;
   list-style: none;
 
   li {
+    @include mixins.fontSize(1.1rem, normal);
     margin: 0;
-    padding: .3rem 0;
+    padding: 0 0 .5rem 0;
+
+    a {
+      display: inline-block;
+      text-decoration: none;
+
+      &:hover {
+        //color: $blueLighter;
+        //text-decoration: underline;
+      }
+    }
+  }
+
+  &.hasTypeDisc,
+  &.hasTypeDecimal {
+    margin-left: spacing.$spacer-5;
+
+    li {
+      padding-left: 0;
+    }
+  }
+
+  &.hasTypeDisc {
+    list-style: disc;
+  }
+
+  &.hasTypeDecimal {
+    list-style: decimal;
   }
 }
 
 a {
-  color: $blackLight;
+  color: color.$blackLight;
+
+  &.isActive {
+    color: color.$blueLighter;
+    font-weight: 500;
+  }
 
   &:hover {
-    color: $black;
+    color: color.$black;
   }
 }
 
 mark {
-  @include fontSize(1.1rem, 400);
+  @include mixins.fontSize(1.1rem, 400);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 1rem;
-  background-color: $grayLight;
+  background-color: color.$grayLight;
   padding: .2rem .5rem;
 
   &-bg-color {
     &-orange {
-      background-color: $black;
+      background-color: color.$black;
     }
-}
+  }
 }
 
 .display {
@@ -125,5 +177,40 @@ mark {
 
   &-visibility-hidden {
     display: none;
+  }
+}
+
+.bg-rounded {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: color.$red;
+  margin: spacing.$spacer-1 ;
+  border-radius: 50%;
+  color: color.$white;
+
+  &-size-16 {
+    @include mixins.fontSize('1.2rem', 500);
+    width: 16px;
+    height: 16px;
+  }
+
+  &-size-24 {
+    @include mixins.fontSize(1.5rem, 500);
+    width: 24px;
+    height: 24px;
+    line-height: 1.5rem;
+  }
+
+  &-size-32 {
+    @include mixins.fontSize(1.9rem, 500);
+    width: 32px;
+    height: 32px;
+  }
+
+  &-size-64 {
+    @include mixins.fontSize(2rem, 500);
+    width: 64px;
+    height: 64px;
   }
 }

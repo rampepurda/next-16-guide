@@ -17,8 +17,8 @@ export default function ApiDataRootLayout({
 }>) {
   return (
     <>
-      <h2>Api Providers</h2>
-      <Navigation tabs={subNavigation.apiProviders} navType={'secondary'} />
+      <h2>State Managements</h2>
+      <Navigation tabs={subNavigation.stateManagement} navType={'secondary'} />
       {children}
     </>
   )

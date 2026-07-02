@@ -4,7 +4,7 @@ import { Dummy } from '@/components/Dummy/Dummy'
 export default function AboutPage() {
   return (
     <LikeProvider>
-      <h2>Context Page</h2>
+      <h3>Context Page</h3>
       <Dummy />
     </LikeProvider>
   )

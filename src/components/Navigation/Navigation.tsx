@@ -35,10 +35,15 @@ export const Navigation = ({
 
   return (
     <nav>
-      <ul className={classNames(classesName, navType === 'secondary' && classes.isNavSecondary)}>
+      <ul
+        className={classNames(
+          classesName,
+          navType === 'secondary' ? classes.isNavSecondary : classes.isNavPrimary
+        )}
+      >
         {tabs.map((tab, idx: number) => (
           <li key={idx}>
-            <Link className={isActiveLink(tab.href) ? classes.isActive : ''} href={tab.href}>
+            <Link className={isActiveLink(tab.href) ? 'isActive' : ''} href={tab.href}>
               {tab.title}
             </Link>
             {children}
