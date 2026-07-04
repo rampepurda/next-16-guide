@@ -1,0 +1,15 @@
+@use "../../app/styles/mixins" as *;
+@use "../../app/styles/color" as *;
+
+.breadcrumbBox {
+  li {
+    @include fontSize(.9rem, 400);
+    color: $grayLight;
+  }
+
+  &__isSelected {
+    @include fontSize(.9rem, bolder);
+    color: $blackLight;
+  }
+}
+
