@@ -24,7 +24,7 @@ h2 {
 }
 
 h3 {
-  @include mixins.fontSize(1.5rem, 500);
+  @include mixins.fontSize(1.6rem, 500);
   margin: 0 0 spacing.$spacer-3 0;
 }
 
@@ -86,7 +86,7 @@ a {
   }
 
   &:hover {
-    color: color.$black;
+    color: color.$blueLighter;
   }
 }
 
@@ -98,12 +98,6 @@ mark {
   border-radius: 1rem;
   background-color: color.$grayLight;
   padding: .2rem .5rem;
-
-  &-bg-color {
-    &-orange {
-      background-color: color.$black;
-    }
-  }
 }
 
 .display {
@@ -177,6 +171,30 @@ mark {
 
   &-visibility-hidden {
     display: none;
+  }
+}
+
+.bg-color-is {
+  &-blackLight {
+    background-color: color.$blackLight;
+    color: color.$white;
+  }
+
+  &-blueLighter {
+    background-color: color.$blueLighter;
+  }
+
+  &-darkmagenta {
+    background-color: color.$darkmagenta;
+  }
+
+  &-orange {
+    background-color: color.$orange;
+    color: color.$white;
+  }
+  &-red {
+    background-color: color.$red;
+    color: color.$white;
   }
 }
 

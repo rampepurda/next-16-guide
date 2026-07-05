@@ -2,7 +2,7 @@ import { fetchExternalApi } from '@/utils/externalApi'
 import { TypicodePostT } from '@/types/primary'
 import { GET_POKEMONS_ABILITY_V2 } from '@/api-providers/graphQL-apollo/queries/pokemonQuery'
 import { query } from '@/api-providers/graphQL-apollo/apollo-server-provider'
-import { Loader } from '@/components'
+import { DataRendered } from '@/components'
 
 export default async function ServerFetchingDataPage() {
   const url = 'https://jsonplaceholder.typicode.com/posts?_limit=3'
@@ -10,7 +10,7 @@ export default async function ServerFetchingDataPage() {
     method: 'GET',
   })
 
-  const { data } = await query({
+  const { data, error } = await query({
     query: GET_POKEMONS_ABILITY_V2,
 
     variables: {
@@ -33,7 +33,6 @@ export default async function ServerFetchingDataPage() {
         </li>
         <li>&nbsp;return await fetch(url, requestInit).then((response) =&gt; response.json())</li>
         <li>&#125;</li>
-        <li></li>
         <li>
           <strong>
             const posts: TypicodePostT[] | undefined = await fetchExternalApi(url,
@@ -43,15 +42,13 @@ export default async function ServerFetchingDataPage() {
       </ul>
 
       {posts ? (
-        <>
-          {posts && (
-            <ul className="hasTypeDecimal">
-              {posts?.map((i) => (
-                <li key={i.id}>{i.body}</li>
-              ))}
-            </ul>
-          )}
-        </>
+        <DataRendered
+          classesNames={'hasTypeDecimal'}
+          name={'typeCodePosts'}
+          data={posts}
+          HTMLAttributes={{ cover: 'ul', content: 'li' }}
+          renderData={(post) => <span>{post.body}</span>}
+        />
       ) : (
         'Something wrong.'
       )}
@@ -59,7 +56,25 @@ export default async function ServerFetchingDataPage() {
       <h3>GraphQL - Apollo Client:</h3>
       <ul className="hasTypeDisc">
         <li>
-          const &#123; data &#125; ={' '}
+          Pro 'server', jakožto default v Next JS je nutno vytvořit PROVIDERa, protože
+          GraphQL-ApolloClient je def 'use client'. Viz: &nbsp;
+          <strong>
+            <em>apollo-server-provider</em>
+          </strong>
+          <ul>
+            <li>
+              export const &#123; getClient, <strong>query</strong>, PreloadQuery &#125; =
+              registerApolloClient(() =&gt; &#123;
+            </li>
+            <li>&nbsp;return new ApolloClient(&#123;</li>
+            <li>&nbsp;&nbsp;link: uriPokemonApi,</li>
+            <li>&nbsp;&nbsp;cache: new InMemoryCache(),</li>
+            <li>&nbsp;&#125;)</li>
+            <li>&#125;)</li>
+          </ul>
+        </li>
+        <li>
+          const &#123; data &#125; =&nbsp;
           <strong>
             <em>await apolloClient.query</em>
           </strong>
@@ -76,12 +91,21 @@ export default async function ServerFetchingDataPage() {
           Server Component (RSC) nebo v Klientské komponentě se Server-Side Renderingem (SSR).
         </li>
       </ul>
-      {data && (
-        <ul className="hasTypeDecimal">
-          {data.pokemon_v2_ability?.map((poke) => (
-            <li key={poke.id}>{poke.name}</li>
-          ))}
-        </ul>
+
+      {error ? (
+        <span>{error.message}</span>
+      ) : (
+        <>
+          {data && (
+            <DataRendered
+              classesNames={'hasTypeDecimal'}
+              name={'Pokemon'}
+              data={data.pokemon_v2_ability}
+              HTMLAttributes={{ cover: 'ul', content: 'li' }}
+              renderData={(pokemon) => <span>{pokemon.name}</span>}
+            />
+          )}
+        </>
       )}
 
       <h3>Tanstack:</h3>
