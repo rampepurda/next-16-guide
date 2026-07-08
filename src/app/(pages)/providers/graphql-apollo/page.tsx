@@ -4,6 +4,7 @@ import { useQuery } from '@apollo/client/react'
 import { GET_POKEMONS_ABILITY_V2 } from '@/api-providers/graphQL-apollo/queries/pokemonQuery'
 import { DataRendered, Loader } from '@/components'
 import { ExternalLink } from '@/components/UI'
+import Link from 'next/link'
 
 export default function GraphQLApolloPage() {
   const { data, loading } = useQuery(GET_POKEMONS_ABILITY_V2, {
@@ -29,7 +30,8 @@ export default function GraphQLApolloPage() {
         <ul>
           <li>
             <p>
-              Message <strong>deprecated</strong>: Tato hláška se vyskutuje při použití:&nbsp;
+              Message <span className="bg-color-is-red bg-rounded-size-4">deprecated</span>: Tato
+              hláška se vyskutuje při použití:&nbsp;
               <strong>.query, useQuery</strong>
             </p>
           </li>
@@ -43,25 +45,27 @@ export default function GraphQLApolloPage() {
           </li>
           <li>
             <h5>Použití v Next:</h5>
-            <p>
-              <strong>'use server': </strong>
-              const &#123; data, error &#125; = await <strong>query.</strong>
-              (GET_POKEMONS_ABILITY_V2, &#123; variables:&#125;)
-            </p>
-            <p>
-              <strong>'use client':</strong> const &#123; data, loading &#125; =
-              <strong> useQuery</strong>(GET_POKEMONS_ABILITY_V2, &#123; variables:&#125;)
-            </p>
+            <ul>
+              <li>
+                use client: <strong>useQuery</strong>
+              </li>
+              <li>
+                use server: <strong>.query</strong>
+              </li>
+            </ul>
           </li>
         </ul>
+
         {loading && <Loader />}
-        <DataRendered
-          classesNames={'hasTypeDecimal'}
-          name={'typeCodePosts'}
-          data={data?.pokemon_v2_ability}
-          HTMLAttributes={{ cover: 'ul', content: 'li' }}
-          renderData={(poke) => <span>{poke.name}</span>}
-        />
+        {data?.pokemon_v2_ability && (
+          <DataRendered
+            classesNames={'hasTypeDecimal'}
+            name={'typeCodePosts'}
+            data={data.pokemon_v2_ability}
+            HTMLAttributes={{ cover: 'ul', content: 'li' }}
+            renderData={(poke) => <Link href={`graphql-apollo/${poke.id}`}>{poke.name}</Link>}
+          />
+        )}
       </section>
     </div>
   )

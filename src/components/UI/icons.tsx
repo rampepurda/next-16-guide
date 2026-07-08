@@ -175,6 +175,7 @@ export const IconBurger = ({ className, hasTooltip = false, title, ...rest }: Ic
     </svg>
   )
 }
+
 export const IconFilter = ({ className, size, hasTooltip = false, title, ...rest }: IconProps) => {
   return (
     <svg

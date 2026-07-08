@@ -1,10 +1,3 @@
-import { fetchExternalApi } from '@/serverActions/externalApi'
-import { TypicodePostT } from '@/types/primary'
-import { GET_POKEMONS_ABILITY_V2 } from '@/api-providers/graphQL-apollo/queries/pokemonQuery'
-import { query } from '@/api-providers/graphQL-apollo/apollo-server-provider'
-
-const url = 'https://jsonplaceholder.typicode.com/posts?_limit=3'
-
 export default async function ServerComponentsPage() {
   return (
     <>

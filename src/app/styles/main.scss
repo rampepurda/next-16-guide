@@ -197,19 +197,24 @@ mark {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  background-color: color.$red;
   margin: spacing.$spacer-1 ;
-  border-radius: 50%;
   color: color.$white;
+
+  &-size-4 {
+    border-radius: .7rem;
+    padding: .2rem .5rem;
+  }
 
   &-size-16 {
     @include mixins.fontSize('1.2rem', 500);
+    border-radius: 50%;
     width: 16px;
     height: 16px;
   }
 
   &-size-24 {
     @include mixins.fontSize(1.5rem, 500);
+    border-radius: 50%;
     width: 24px;
     height: 24px;
     line-height: 1.5rem;

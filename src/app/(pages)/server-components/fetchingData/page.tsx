@@ -1,4 +1,4 @@
-import { fetchExternalApi } from '@/utils/externalApi'
+import fetchApi from '@/utils/fetchApi'
 import { TypicodePostT } from '@/types/primary'
 import { GET_POKEMONS_ABILITY_V2 } from '@/api-providers/graphQL-apollo/queries/pokemonQuery'
 import { query } from '@/api-providers/graphQL-apollo/apollo-server-provider'
@@ -6,7 +6,7 @@ import { DataRendered } from '@/components'
 
 export default async function ServerFetchingDataPage() {
   const url = 'https://jsonplaceholder.typicode.com/posts?_limit=3'
-  const posts: TypicodePostT[] | undefined = await fetchExternalApi(url, {
+  const posts: TypicodePostT[] | undefined = await fetchApi.externalApi(url, {
     method: 'GET',
   })
 
@@ -26,7 +26,7 @@ export default async function ServerFetchingDataPage() {
 
   return (
     <>
-      <h3>fetch Api Data:</h3>
+      <h3>1. fetch Api Data:</h3>
       <ul>
         <li>
           const fetchExternalApi = async (url: string, requestInit?: RequestInit) =&gt; &#123;
@@ -53,7 +53,7 @@ export default async function ServerFetchingDataPage() {
         'Something wrong.'
       )}
 
-      <h3>GraphQL - Apollo Client:</h3>
+      <h3>2. GraphQL - Apollo Client:</h3>
       <ul className="hasTypeDisc">
         <li>
           Pro 'server', jakožto default v Next JS je nutno vytvořit PROVIDERa, protože
@@ -108,11 +108,11 @@ export default async function ServerFetchingDataPage() {
         </>
       )}
 
-      <h3>Tanstack:</h3>
+      <h3>3. Tanstack:</h3>
       <p>
-        <strong>
+        <span className="bg-color-is-red bg-rounded-size-4">
           Bohužel <em>Tanstack</em> neumožňuje uplatnit knihovnu v prostředí <em>'use server'</em>
-        </strong>
+        </span>
       </p>
     </>
   )

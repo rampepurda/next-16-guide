@@ -32,6 +32,12 @@ export const Navigation = ({
           navType === 'secondary' ? classes.isNavSecondary : classes.isNavPrimary
         )}
       >
+        {navType === 'primary' && (
+          <li>
+            <h4>Next16 Guide</h4>
+          </li>
+        )}
+
         {tabs.map((tab, idx: number) => (
           <li key={idx}>
             <Link

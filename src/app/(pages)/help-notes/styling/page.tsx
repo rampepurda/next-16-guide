@@ -8,7 +8,8 @@ export default function SassPage() {
           <h5>@import vs @use</h5>
           <ul>
             <li>
-              <span className="bg-rounded bg-rounded-size-24">-</span> @import "mixins"
+              <span className="bg-rounded bg-color-is-red bg-rounded-size-24">-</span> @import
+              "mixins"
             </li>
             <li>
               <span className="bg-rounded bg-rounded-size-24" style={{ backgroundColor: 'green' }}>
@@ -31,7 +32,7 @@ export default function SassPage() {
 
           <ul>
             <li>
-              <span className="bg-rounded bg-rounded-size-24">-</span> map-get
+              <span className="bg-rounded bg-color-is-red bg-rounded-size-24">-</span> map-get
             </li>
             <li>
               <span className="bg-rounded bg-rounded-size-24" style={{ backgroundColor: 'green' }}>
@@ -48,7 +49,8 @@ export default function SassPage() {
 
           <ul>
             <li>
-              <span className="bg-rounded bg-rounded-size-24">-</span> $colors: black blue darkblue;
+              <span className="bg-rounded bg-color-is-red bg-rounded-size-24">-</span> $colors:
+              black blue darkblue;
             </li>
             <li>
               <span className="bg-rounded bg-rounded-size-24" style={{ backgroundColor: 'green' }}>
@@ -63,8 +65,8 @@ export default function SassPage() {
 
           <ul>
             <li>
-              <span className="bg-rounded bg-rounded-size-24">-</span> background-color:
-              transparentize($white, .4);
+              <span className="bg-rounded bg-color-is-red bg-rounded-size-24">-</span>{' '}
+              background-color: transparentize($white, .4);
             </li>
             <li>
               <span className="bg-rounded bg-rounded-size-24" style={{ backgroundColor: 'green' }}>
