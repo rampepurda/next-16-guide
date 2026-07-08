@@ -51,11 +51,6 @@ ul {
     a {
       display: inline-block;
       text-decoration: none;
-
-      &:hover {
-        //color: $blueLighter;
-        //text-decoration: underline;
-      }
     }
   }
 
@@ -81,8 +76,8 @@ a {
   color: color.$blackLight;
 
   &.isActive {
+    @include mixins.fontSize(1.1rem, 500);
     color: color.$blueLighter;
-    font-weight: 500;
   }
 
   &:hover {

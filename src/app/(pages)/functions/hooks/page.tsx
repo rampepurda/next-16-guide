@@ -1,3 +1,3 @@
 export default function AboutPage() {
-  return <div>&nbsp;</div>
+  return <h3>Hooks Page</h3>
 }

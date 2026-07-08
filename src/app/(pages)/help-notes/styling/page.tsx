@@ -2,9 +2,6 @@ export default function SassPage() {
   return (
     <>
       <h3>Sass styling</h3>
-      <p>
-        V Reactu jsou tyto tolerovány, Next JS je ale považuje za chyby, které je nutné opravit:
-      </p>
 
       <ul className="hasTypeDecimal">
         <li>
@@ -58,6 +55,30 @@ export default function SassPage() {
                 +
               </span>
               <strong>$colors: ( "black": black, "blue": blue, "darkblue": darkblue)</strong>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h4>transparentize()</h4>
+
+          <ul>
+            <li>
+              <span className="bg-rounded bg-rounded-size-24">-</span> background-color:
+              transparentize($white, .4);
+            </li>
+            <li>
+              <span className="bg-rounded bg-rounded-size-24" style={{ backgroundColor: 'green' }}>
+                +
+              </span>
+              &nbsp; @use "sass:color"; | @use "sass:color" as *;
+            </li>
+            <li>
+              background-color: <strong>color.adjust($white, $alpha: -.4) ;</strong>
+              <span className="color-is-gray">&nbsp;(Doporučeno pro přímou náhradu)</span>
+            </li>
+            <li>
+              background-color: <strong>scale($white, $alpha: 40%) ;</strong>
+              <span className="color-is-gray">&nbsp;(Doporučeno pro relativní změny)</span>
             </li>
           </ul>
         </li>
