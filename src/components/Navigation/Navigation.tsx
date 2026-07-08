@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import classes from './Navigation.module.scss'
-import { ReactNode, useCallback } from 'react'
+import { ReactNode } from 'react'
 import classNames from 'classnames'
 
 type NavigationProps = {
@@ -11,7 +11,7 @@ type NavigationProps = {
   navType?: 'primary' | 'secondary'
   children?: ReactNode
   tabs: {
-    href: string
+    link: string
     title: string
   }[]
 }
@@ -24,15 +24,6 @@ export const Navigation = ({
 }: NavigationProps) => {
   const pathname = usePathname()
 
-  const isActiveLink = useCallback(
-    (href: string) => {
-      if (pathname === href) {
-        return true
-      }
-    },
-    [pathname]
-  )
-
   return (
     <nav>
       <ul
@@ -43,7 +34,10 @@ export const Navigation = ({
       >
         {tabs.map((tab, idx: number) => (
           <li key={idx}>
-            <Link className={isActiveLink(tab.href) ? 'isActive' : ''} href={tab.href}>
+            <Link
+              className={classNames(pathname.startsWith(tab.link, 0) && 'isActive')}
+              href={tab.link}
+            >
               {tab.title}
             </Link>
             {children}
@@ -53,13 +47,3 @@ export const Navigation = ({
     </nav>
   )
 }
-
-/*
-export const isNavLinkActive = (currentPath: string, url: string, isMain: boolean): boolean => {
-  const urlPath = url.split(RegExp(/^\/([a-zA-Z0-9]+)/)).filter(Boolean)
-  // Check between Main and Sub navigation
-  if (!isMain) return currentPath === url
-
-  return currentPath.startsWith(`/${urlPath[0]}`)
-}
- */

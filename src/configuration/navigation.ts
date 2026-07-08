@@ -1,24 +1,23 @@
 export const navPrimary = [
-  { title: 'Home', href: '/' },
-  { title: 'Server Components', href: '/server-components' },
-  { title: 'Client Components', href: '/client-components' },
-  { title: 'Functions', href: '/functions' },
-  { title: 'State Management', href: '/state-management' },
-  { title: 'Api Providers', href: '/providers' },
-  { title: 'Poznámky a rady', href: '/help-notes' },
+  { title: 'Server Components', link: '/server-components' },
+  { title: 'Client Components', link: '/client-components' },
+  { title: 'Functions', link: '/functions' },
+  { title: 'State Management', link: '/state-management' },
+  { title: 'Api Providers', link: '/providers' },
+  { title: 'Poznámky a rady', link: '/help-notes' },
 ]
 
 export const subNavigation = {
   apiProviders: [
-    { title: 'Tanstack', href: '/providers/tanstack' },
-    { title: 'GraphQL-Apollo', href: '/providers/graphql-apollo' },
+    { title: 'Tanstack', link: '/providers/tanstack' },
+    { title: 'GraphQL-Apollo', link: '/providers/graphql-apollo' },
   ],
   apiDataClient: [
-    { title: 'Tanstack', href: '/apiData/tanstack' },
-    { title: 'GraphQL-Apollo', href: '/apiData/graphql-apollo-client' },
+    { title: 'Tanstack', link: '/apiData/tanstack' },
+    { title: 'GraphQL-Apollo', link: '/apiData/graphql-apollo-client' },
   ],
-  stateManagement: [{ title: 'Context', href: '/state-management/context' }],
-  serverComponent: [{ title: 'Fetching Data', href: '/server-components/fetchingData' }],
-  helpNotes: [{ title: 'Styling', href: '/help-notes/styling' }],
-  functions: [{ title: 'hooks', href: '/functions/hooks' }],
+  stateManagement: [{ title: 'Context', link: '/state-management/context' }],
+  serverComponent: [{ title: 'Fetching Data', link: '/server-components/fetchingData' }],
+  helpNotes: [{ title: 'Styling', link: '/help-notes/styling' }],
+  functions: [{ title: 'hooks', link: '/functions/hooks' }],
 }

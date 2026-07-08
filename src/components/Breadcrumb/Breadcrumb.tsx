@@ -6,19 +6,20 @@ import Link from 'next/link'
 
 export const Breadcrumb = () => {
   const path = usePathname()
-  const breadCrumbs: string[] = path.split('/')
+  const pathArray: string[] = path.split('/')
+  const breadCrumbs: string[] = pathArray.slice(1, pathArray.length)
 
   return (
     <>
-      {breadCrumbs.length > 2 && (
+      {breadCrumbs.length > 1 && (
         <nav className={classes.breadcrumbBox} aria-label="breadcrumb">
           <ul>
             {breadCrumbs.map((breadCrumb, idx: number) => (
               <li className="display-flex-inline" key={idx}>
-                {breadCrumbs.length !== idx + 1 && breadCrumb !== '' ? (
+                {breadCrumbs.length !== idx + 1 ? (
                   <>
                     <Link
-                      href={`${idx === 1 ? `${breadCrumbs[idx - 1]}` : `/${breadCrumbs[idx - 1]}`}/${breadCrumb}`}
+                      href={`${idx === 0 ? `/${breadCrumbs[0]}` : `/${breadCrumbs[idx - 1]}/${breadCrumb}`}`}
                       role="button"
                     >
                       {breadCrumb}
