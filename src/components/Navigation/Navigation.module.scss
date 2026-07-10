@@ -1,10 +1,23 @@
-.isNavSecondary {
+@use "../../app/styles/spacing";
+
+.isNavPrimary {
+  position: fixed;
+  top: 2rem;
+  left: 1rem;
+  margin-top: 0;
+
   li {
-    display: inline;
-    padding-right: 1.5rem;
+    padding: 0 0 .8rem 1rem;
   }
 }
 
-.isActive {
-  font-weight: bolder;
+.isNavSecondary {
+  margin: spacing.$spacer-3 0;
+
+  li {
+    display: inline;
+    margin: 0;
+    padding-left: 0;
+    padding-right: 1.5rem;
+  }
 }

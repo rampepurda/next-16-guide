@@ -6,7 +6,7 @@ import {
   ApolloNextAppProvider,
   InMemoryCache,
 } from '@apollo/client-integration-nextjs'
-import { uriPokemonApi } from '@/utils/uriPokemonLink'
+import { uriPokemonApi } from '@/utils/apollo-client-make-link/uriPokemonLink'
 
 function makeClient() {
   return new ApolloClient({

@@ -1,11 +1,11 @@
-import './styles/globals.css'
+import './globals.css'
 import './styles/main.scss'
 import type { Metadata } from 'next'
 import React, { ReactNode } from 'react'
 import { roboto } from '@/app/fonts'
-import { Navigation } from '@/components'
+import { Breadcrumb, Navigation } from '@/components'
 import QueryProvider from '@/api-providers/tanstack/provider'
-import { navPrimary } from '@/configuration/navigation'
+import { navPrimary } from '@/configuration'
 import { ApolloClientProvider } from '@/api-providers/graphQL-apollo/apolloProvider'
 
 export const metadata: Metadata = {
@@ -25,7 +25,10 @@ export default function RootLayout({
           <body>
             <div className="display-grid display-grid-temp-nav-primary">
               <Navigation tabs={navPrimary} />
-              <main>{children}</main>
+              <main>
+                <Breadcrumb />
+                {children}
+              </main>
             </div>
           </body>
         </html>

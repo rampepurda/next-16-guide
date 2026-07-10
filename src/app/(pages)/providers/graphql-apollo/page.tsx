@@ -1,29 +1,38 @@
-export default function ProvidersPage() {
+import { ExternalLink } from '@/components/UI'
+
+export default function GraphQLApolloPage() {
   return (
     <div>
       <h2>
-        Typescript with Apollo Client v4+{' '}
-        <mark className="bg-color-is-deeppink color-is-white">new</mark>
+        GraphQ | Typescript with Apollo Client v4+&nbsp;
+        <mark className="bg-color-is-orange">new</mark>
       </h2>
 
       <section>
-        <ul>
+        <ul className="hasTypeDisc">
           <li>
             <p>
-              Message <strong>deprecated</strong>: Tato hláška se vyskutuje při použití:{' '}
+              Message <span className="bg-color-is-red bg-rounded-size-4">deprecated</span>&nbsp;
+              Tato hláška se vyskytuje při použití:&nbsp;
               <strong>.query, useQuery</strong>
+            </p>
+            <p>
+              Nově je nutno otypovat přímo gql queries: &nbsp;
+              <ExternalLink
+                url={'https://www.apollographql.com/docs/react/data/typescript'}
+                title={' Více zde'}
+              />
+              &nbsp;anebo mrkni přímo do: api-providers/graphQL-apollo/pokemonQuery
             </p>
           </li>
           <li>
-            Nově je nutno otypovat přímo gql parametry: &nbsp;
-            <a href="https://www.apollographql.com/docs/react/data/typescript" target="_blank">
-              Více zde
-            </a>
-            &nbsp;anebo mrkni přímo do: api-providers/graphQL-apollo/pokemonQuery
-          </li>
-          <li>
-            <h5>Použití v Next:</h5>
-            'use server' | 'use client'
+            <h5>Použití v prostředí:</h5>
+            <ul>
+              <li>
+                use client: <strong>useQuery</strong> &nbsp;|&nbsp; use server:
+                <strong> .query</strong>
+              </li>
+            </ul>
           </li>
         </ul>
       </section>

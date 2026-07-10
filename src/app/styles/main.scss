@@ -1,129 +1,103 @@
-@import "spacing";
-@import "color";
-@import "functions";
-@import "mixins";
-@import "btn";
+@use "spacing";
+@use "color";
+@use "functions";
+@use "mixins";
+@use "btn";
+@use "modifiers";
+@use "sass:color" as *;
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  margin: 0;
+  padding: 1.5rem 3rem 3rem 1rem;
+  font-size: 18px;
+}
+
+h1 {
+  @include mixins.fontSize(2.1rem, 500);
+  margin: 0 0 spacing.$spacer-5 0;
+}
 
 h2 {
-  @include fontSize(1.8rem, 500);
-  margin: 0 0 $spacer-3 0;
+  @include mixins.fontSize(1.85rem, 500);
+  margin: 0 0 spacing.$spacer-4 0;
 }
 
 h3 {
-  @include fontSize(1.5rem, 500);
-  margin: 0 0 $spacer-3 0;
+  @include mixins.fontSize(1.5rem, 500);
+  margin: spacing.$spacer-2 0 spacing.$spacer-3 0;
+}
+
+h4 {
+  @include mixins.fontSize(1.3rem, 500);
+  margin: 0 0 spacing.$spacer-3 0;
 }
 
 h5 {
-  @include fontSize(1.2rem, 500);
-  margin: 0 0 $spacer-3 0;
+  @include mixins.fontSize(1.2rem, 500);
+  margin: 0 0 spacing.$spacer-2 0;
+}
+
+p {
+  margin: spacing.$spacer-1 0 spacing.$spacer-3 0;
 }
 
 ul {
-  margin: $spacer-2 0;
+  margin: spacing.$spacer-3 0;
   padding: 0;
   list-style: none;
 
   li {
+    @include mixins.fontSize(1.1rem, normal);
     margin: 0;
-    padding: .3rem 0;
+    padding: 0 0 .5rem 0;
+
+    a {
+      display: inline-block;
+      text-decoration: none;
+    }
+  }
+
+  &.hasTypeDisc,
+  &.hasTypeDecimal {
+    margin-left: spacing.$spacer-5;
+
+    li {
+      padding-left: 0;
+    }
+  }
+
+  &.hasTypeDisc {
+    list-style: disc;
+  }
+
+  &.hasTypeDecimal {
+    list-style: decimal;
   }
 }
 
 a {
-  color: $blackLight;
+  color: color.$blackLight;
+
+  &.isActive {
+    @include mixins.fontSize(1.1rem, 400);
+    color: color.$blueLighter;
+  }
 
   &:hover {
-    color: $black;
+    color: color.$blueLighter;
   }
 }
 
 mark {
-  @include fontSize(1.1rem, 400);
+  @include mixins.fontSize(1.1rem, 400);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 1rem;
-  background-color: $grayLight;
-  padding: .2rem .5rem;
-
-  &-bg-color {
-    &-orange {
-      background-color: $black;
-    }
-}
-}
-
-.display {
-  &-flex,
-  &-flex-inline {
-    display: flex;
-    flex-flow: wrap;
-    justify-content: flex-start;
-
-    &-column {
-      flex-flow: column;
-    }
-
-    &-align-items-center {
-      align-items: center;
-    }
-
-    &-align-items-start {
-      align-items: start;
-    }
-
-    &-justify-center {
-      justify-self: center;
-    }
-
-    &-justify-start {
-      justify-content: start;
-    }
-
-    &-justify-end {
-      justify-content: end;
-    }
-  }
-
-  &-flex-inline {
-    display: inline-flex;
-  }
-
-  &-grid {
-    display: grid;
-    gap: 1rem;
-
-    &-temp-nav-primary {
-      grid-template-columns: 20% auto;
-    }
-
-    &-temp-col-2 {
-      grid-template-columns: 20% auto;
-    }
-
-    &-temp-col-3 {
-      grid-template-columns: auto auto auto;
-    }
-
-    &-temp-col-4 {
-      grid-template-columns: auto auto auto auto;
-    }
-
-    &-justify-start {
-      justify-self: start;
-    }
-
-    &-justify-end {
-      justify-self: end;
-    }
-  }
-
-  &-inline {
-    display: inline;
-  }
-
-  &-visibility-hidden {
-    display: none;
-  }
+  background-color: color.$grayLight;
+  padding: .2rem .6rem;
+  color: color.$white;
 }

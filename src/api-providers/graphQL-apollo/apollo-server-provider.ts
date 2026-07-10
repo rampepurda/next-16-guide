@@ -3,7 +3,7 @@ import {
   InMemoryCache,
   registerApolloClient,
 } from '@apollo/client-integration-nextjs'
-import { uriPokemonApi } from '@/utils/uriPokemonLink'
+import { uriPokemonApi } from '@/utils/apollo-client-make-link/uriPokemonLink'
 
 export const { getClient, query, PreloadQuery } = registerApolloClient(() => {
   return new ApolloClient({

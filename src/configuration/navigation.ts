@@ -1,19 +1,24 @@
 export const navPrimary = [
-  { title: 'Home', href: '/' },
-  { title: 'About', href: '/about' },
-  { title: 'Context', href: '/context' },
-  { title: 'Api Providers', href: '/providers' },
-  { title: 'Server Action', href: '/serverAction' },
-  { title: 'Api Data: use client', href: '/apiData' },
+  { title: 'Server Components', link: '/server-components' },
+  { title: 'Client Components', link: '/client-components' },
+  { title: 'Functions', link: '/functions' },
+  { title: 'State Management', link: '/state-management' },
+  { title: 'Api Providers', link: '/providers' },
+  { title: 'Poznámky a rady', link: '/help-notes' },
 ]
 
 export const subNavigation = {
   apiProviders: [
-    { title: 'Tanstack', href: '/providers/tanstack' },
-    { title: 'GraphQL-Apollo', href: '/providers/graphql-apollo' },
+    { title: 'Tanstack', link: '/providers/tanstack' },
+    { title: 'GraphQL-Apollo', link: '/providers/graphql-apollo' },
   ],
   apiDataClient: [
-    { title: 'Tanstack', href: '/apiData/tanstack' },
-    { title: 'GraphQL-Apollo', href: '/apiData/graphql-apollo-client' },
+    { title: 'Tanstack', link: '/apiData/tanstack' },
+    { title: 'GraphQL-Apollo', link: '/apiData/graphql-apollo-client' },
   ],
+  stateManagement: [{ title: 'Context', link: '/state-management/context' }],
+  serverComponent: [{ title: 'Fetching Data', link: '/server-components/fetchingData' }],
+  clientComponent: [{ title: 'Fetching Data', link: '/client-components/fetchingData' }],
+  helpNotes: [{ title: 'Styling', link: '/help-notes/styling' }],
+  functions: [{ title: 'hooks', link: '/functions/hooks' }],
 }

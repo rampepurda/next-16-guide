@@ -3,20 +3,25 @@
 import React, { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { TypicodePostT } from '@/types/primary'
-import { fetchExternalApi } from '@/serverActions/externalApi'
+import fetchApi from '@/utils/fetchApi'
 
 export default function ApiDataPage() {
   const [isEnabled, setIsEnabled] = useState<boolean>(false)
   const { data, isError, isLoading } = useQuery({
     queryKey: ['typiCode'],
     queryFn: (): Promise<TypicodePostT[] | undefined> =>
-      fetchExternalApi(`https://jsonplaceholder.typicode.com/posts?_limit=5`, { method: 'GET' }),
+      fetchApi.externalApi(`https://jsonplaceholder.typicode.com/posts?_limit=5`, {
+        method: 'GET',
+      }),
     enabled: isEnabled,
   })
 
   return (
     <>
       <h2>Tanstack</h2>
+      <ul className="hasTypeDisc">
+        <li>progress</li>
+      </ul>
       <button className="btn btn-submit" onClick={() => setIsEnabled(!isEnabled)}>
         Načti data
       </button>

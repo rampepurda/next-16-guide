@@ -1,57 +1,57 @@
-@import "spacing";
-@import "color";
+@use "spacing";
+@use "color";
 
 .btn {
   cursor: pointer;
-  margin: $spacer-2 $spacer-1 $spacer-2 0;
+  margin: spacing.$spacer-2 spacing.$spacer-1 spacing.$spacer-2 0;
   border-radius: 1.3rem;
   border: 0 none;
-  background-color: $gray;
+  background-color: color.$gray;
   padding: .5rem 1.3rem;
-  color: $white;
+  color: color.$white;
   font-size: 1.2rem;
 
   &:hover {
-    background-color:$grayLight;
+    background-color: color.$grayLight;
   }
 
   &-edit {
-    background-color: $orange;
+    background-color: color.$orange;
 
     &:hover {
-      background-color:$orange;
+      background-color: color.$orange;
     }
   }
 
   &-info {
-    background-color: $green;
+    background-color: color.$green;
 
     &:hover {
-      background-color: $greenDarker;
+      background-color: color.$greenDarker;
     }
   }
 
   &-primary {
-    background-color: $grayDarker;
+    background-color: color.$grayDarker;
 
     &:hover {
-      background-color:$gray;
+      background-color: color.$gray;
     }
   }
 
   &-remove {
-    background-color: $red;
+    background-color: color.$red;
 
     &:hover {
-      background-color: $redDarker;
+      background-color: color.$redDarker;
     }
   }
 
   &-submit {
-    background-color: $blueLight;
+    background-color: color.$blueLight;
 
     &:hover {
-      background-color:$blueDark;
+      background-color: color.$blueDark;
     }
   }
 
@@ -59,25 +59,25 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid $grayLighter;
+    border: 1px solid color.$grayLighter;
     border-radius: 1.5rem;
     background-color: transparent;
-    color: $black;
+    color: color.$black;
 
     a, :hover {
-      color: $blackLighter !important;
+      color: color.$blackLighter !important;
       text-decoration: none;
     }
 
     &:hover {
-      background-color: $grayLightest;
+      background-color: color.$grayLightest;
     }
   }
 
   &-toggle {
     border: 0;
     background-color: transparent;
-    color: $black;
+    color: color.$black;
 
     &:hover {
       background-color: transparent;
@@ -86,16 +86,16 @@
 
   &-link {
     display: inline-block;
-    margin: $spacer-3;
+    margin: spacing.$spacer-3;
     background-color: transparent;
     padding: 0;
-    color: $blueLighter;
+    color: color.$blueLighter;
     text-decoration: none;
 
     a {
       display: inline-block;
       padding: 0 .5rem;
-      color: $blueLight;
+      color: color.$blueLight;
     }
 
     &:hover {
@@ -105,7 +105,7 @@
   }
 
   a {
-    color: $white;
+    color: color.$white;
     text-decoration: none;
   }
 }
