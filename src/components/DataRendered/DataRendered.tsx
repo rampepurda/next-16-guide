@@ -1,7 +1,7 @@
 import React, { HTMLAttributes, ReactNode } from 'react'
 import { HTMLBodyAttrT } from '@/types/primary'
 
-type DataRenderedProps<T> = HTMLAttributes<HTMLBodyElement> & {
+export type DataRenderedProps<T> = HTMLAttributes<HTMLBodyElement> & {
   HTMLAttributes: {
     cover: HTMLBodyAttrT
     content: HTMLBodyAttrT

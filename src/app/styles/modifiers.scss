@@ -1,0 +1,182 @@
+@use "spacing";
+@use "color";
+@use "functions";
+@use "mixins";
+@use "sass:color" as *;
+
+.display {
+  &-flex,
+  &-flex-inline {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: flex-start;
+
+    &-column {
+      flex-flow: column;
+    }
+
+    &-align-items-center {
+      align-items: center;
+    }
+
+    &-align-items-start {
+      align-items: start;
+    }
+
+    &-justify-center {
+      justify-self: center;
+    }
+
+    &-justify-start {
+      justify-content: start;
+    }
+
+    &-justify-end {
+      justify-content: end;
+    }
+  }
+
+  &-flex-inline {
+    display: inline-flex;
+  }
+
+  &-grid {
+    display: grid;
+    gap: 1rem;
+
+    &-temp-nav-primary {
+      grid-template-columns: 20% auto;
+    }
+
+    &-temp-col-2 {
+      grid-template-columns: 20% auto;
+    }
+
+    &-temp-col-3 {
+      grid-template-columns: auto auto auto;
+    }
+
+    &-temp-col-4 {
+      grid-template-columns: auto auto auto auto;
+    }
+
+    &-justify-start {
+      justify-self: start;
+    }
+
+    &-justify-end {
+      justify-self: end;
+    }
+  }
+
+  &-inline {
+    display: inline;
+  }
+
+  &-visibility-hidden {
+    display: none;
+  }
+}
+
+.color-is {
+  &-black {
+    color: color.$black;
+  }
+
+  &-darkmagenta {
+    color: color.$darkmagenta;
+  }
+
+  &-gray {
+    color: color.$gray;
+  }
+
+  &-grayLight {
+    color: color.$grayLight;
+  }
+
+  &-red {
+    background-color: color.$red;
+  }
+}
+
+.bg-color-is {
+  &-blackLight {
+    background-color: color.$blackLight;
+    color: color.$white;
+  }
+
+  &-blueLighter {
+    background-color: color.$blueLighter;
+  }
+
+  &-darkmagenta {
+    background-color: color.$darkmagenta;
+  }
+
+  &-grayLight {
+    background-color: color.$grayLight;
+  }
+
+  &-green {
+    background-color: color.$green;
+  }
+
+  &-orange {
+    background-color: color.$orange;
+    color: color.$white;
+  }
+
+  &-red {
+    background-color: color.$red;
+    color: color.$white;
+  }
+}
+
+.bg-rounded {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: spacing.$spacer-1 ;
+  color: color.$white;
+
+  &-size-4 {
+    border-radius: .7rem;
+    padding: .2rem .5rem;
+  }
+
+  &-size-16 {
+    @include mixins.fontSize('1.2rem', 500);
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+  }
+
+  &-size-24 {
+    @include mixins.fontSize(1.5rem, 500);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    line-height: 1.5rem;
+  }
+
+  &-size-32 {
+    @include mixins.fontSize(1.9rem, 500);
+    width: 32px;
+    height: 32px;
+  }
+
+  &-size-64 {
+    @include mixins.fontSize(2rem, 500);
+    width: 64px;
+    height: 64px;
+  }
+}
+
+.hasOutline {
+  display: inline-block;
+  margin: spacing.$spacer-4 0;
+  border-radius: .6rem;
+  outline: 1px solid adjust(color.$grayLight, $alpha: -.7);
+  padding: 1.5rem;
+}

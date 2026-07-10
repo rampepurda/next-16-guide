@@ -19,6 +19,9 @@ export default function ApiDataPage() {
   return (
     <>
       <h2>Tanstack</h2>
+      <ul className="hasTypeDisc">
+        <li>progress</li>
+      </ul>
       <button className="btn btn-submit" onClick={() => setIsEnabled(!isEnabled)}>
         Načti data
       </button>

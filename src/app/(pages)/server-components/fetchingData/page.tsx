@@ -3,19 +3,22 @@ import { TypicodePostT } from '@/types/primary'
 import { GET_POKEMONS_ABILITY_V2 } from '@/api-providers/graphQL-apollo/queries/pokemonQuery'
 import { query } from '@/api-providers/graphQL-apollo/apollo-server-provider'
 import { DataRendered } from '@/components'
+import Link from 'next/link'
+import { environments } from '@/configuration'
 
 export default async function ServerFetchingDataPage() {
-  const url = 'https://jsonplaceholder.typicode.com/posts?_limit=3'
-  const posts: TypicodePostT[] | undefined = await fetchApi.externalApi(url, {
-    method: 'GET',
-  })
+  const posts: TypicodePostT[] | undefined = await fetchApi.externalApi(
+    `${environments.typicodePosts}?_limit=3`,
+    {
+      method: 'GET',
+    }
+  )
 
   const { data, error } = await query({
     query: GET_POKEMONS_ABILITY_V2,
-
     variables: {
       offset: 1,
-      limit: 5,
+      limit: 3,
       orderBy: [
         {
           name: 'desc',
@@ -26,8 +29,9 @@ export default async function ServerFetchingDataPage() {
 
   return (
     <>
-      <h3>1. fetch Api Data:</h3>
-      <ul>
+      <h3 className="color-is-gray">Fetching Data, dynamic data fetching:</h3>
+
+      <ul className="hasOutline">
         <li>
           const fetchExternalApi = async (url: string, requestInit?: RequestInit) =&gt; &#123;
         </li>
@@ -41,19 +45,22 @@ export default async function ServerFetchingDataPage() {
         </li>
       </ul>
 
+      <p>
+        <em className="color-is-gray">Klikni na Link pro zobrazení dynamického fetchování:</em>
+      </p>
       {posts ? (
         <DataRendered
           classesNames={'hasTypeDecimal'}
           name={'typeCodePosts'}
           data={posts}
           HTMLAttributes={{ cover: 'ul', content: 'li' }}
-          renderData={(post) => <span>{post.body}</span>}
+          renderData={(post) => <Link href={`fetchingData/${post.id}`}>{post.body}</Link>}
         />
       ) : (
         'Something wrong.'
       )}
 
-      <h3>2. GraphQL - Apollo Client:</h3>
+      <h3 className="color-is-gray">GraphQL - Apollo Client:</h3>
       <ul className="hasTypeDisc">
         <li>
           Pro 'server', jakožto default v Next JS je nutno vytvořit PROVIDERa, protože
@@ -61,7 +68,10 @@ export default async function ServerFetchingDataPage() {
           <strong>
             <em>apollo-server-provider</em>
           </strong>
-          <ul>
+          <ul className="hasOutline">
+            <li className="color-is-grayLight">
+              <strong>Apollo Server Provider:</strong>
+            </li>
             <li>
               export const &#123; getClient, <strong>query</strong>, PreloadQuery &#125; =
               registerApolloClient(() =&gt; &#123;
@@ -71,21 +81,23 @@ export default async function ServerFetchingDataPage() {
             <li>&nbsp;&nbsp;cache: new InMemoryCache(),</li>
             <li>&nbsp;&#125;)</li>
             <li>&#125;)</li>
+            <li>&nbsp;</li>
+            <li>
+              const &#123; data &#125; =&nbsp;
+              <strong>
+                <em>await apolloClient.query</em>
+              </strong>
+              &lt;T&gt;(&#123;query, variables)&#125;
+            </li>
           </ul>
         </li>
         <li>
-          const &#123; data &#125; =&nbsp;
-          <strong>
-            <em>await apolloClient.query</em>
-          </strong>
-          &lt;T&gt;(&#123;query, variables)&#125;
-        </li>
-        <li>
+          <strong>Loader: </strong>
           Při dotazování na serveru (Server Queries) pomocí Apollo Client v Next.js (App Router)
-          proměnnou{' '}
+          proměnnou
           <strong>
-            <em>loading</em>
-          </strong>{' '}
+            <em> loading </em>
+          </strong>
           přímo z hooku nezískáte, protože asynchronní operace se chovají na serveru jinak než na
           klientovi. Způsob, jakým se stav načítání řeší, závisí na tom, zda data stahujete v React
           Server Component (RSC) nebo v Klientské komponentě se Server-Side Renderingem (SSR).
@@ -108,7 +120,7 @@ export default async function ServerFetchingDataPage() {
         </>
       )}
 
-      <h3>3. Tanstack:</h3>
+      <h3 className="color-is-gray">Tanstack:</h3>
       <p>
         <span className="bg-color-is-red bg-rounded-size-4">
           Bohužel <em>Tanstack</em> neumožňuje uplatnit knihovnu v prostředí <em>'use server'</em>

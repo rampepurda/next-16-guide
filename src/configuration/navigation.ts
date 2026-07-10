@@ -18,6 +18,7 @@ export const subNavigation = {
   ],
   stateManagement: [{ title: 'Context', link: '/state-management/context' }],
   serverComponent: [{ title: 'Fetching Data', link: '/server-components/fetchingData' }],
+  clientComponent: [{ title: 'Fetching Data', link: '/client-components/fetchingData' }],
   helpNotes: [{ title: 'Styling', link: '/help-notes/styling' }],
   functions: [{ title: 'hooks', link: '/functions/hooks' }],
 }

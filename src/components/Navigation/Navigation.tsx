@@ -34,7 +34,9 @@ export const Navigation = ({
       >
         {navType === 'primary' && (
           <li>
-            <h4>Next16 Guide</h4>
+            <Link href="/">
+              <h4>Next16 Guide</h4>
+            </Link>
           </li>
         )}
 
