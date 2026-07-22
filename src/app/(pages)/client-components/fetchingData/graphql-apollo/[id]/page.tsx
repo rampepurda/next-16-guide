@@ -15,8 +15,8 @@ export default function PokemonDetailPage() {
 
   return (
     <>
-      <h3 className="color-is-gray">Dynamic Route Segments use GraphQL & Apollo</h3>
-      <ul className="hasOutline">
+      <h3 className="color-is-gray">GraphQL & Apollo: Dynamic Segments</h3>
+      <ul className="hasOutline pre">
         <li>
           <strong>const params = useParams()</strong>
         </li>

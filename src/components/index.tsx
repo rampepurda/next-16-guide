@@ -1,4 +1,4 @@
 export * from './Breadcrumb/Breadcrumb'
-export * from './DataRendered'
+export * from './DataGeneric/DataGeneric'
 export * from './Navigation/Navigation'
 export * from './Loader/Loader'

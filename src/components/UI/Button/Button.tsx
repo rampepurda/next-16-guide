@@ -1,18 +1,22 @@
-import React, { ButtonHTMLAttributes, PropsWithChildren } from 'react'
+import React, { ComponentPropsWithoutRef, PropsWithChildren } from 'react'
 import classNames from 'classnames'
 
-type Props = ButtonHTMLAttributes<HTMLButtonElement> &
+type Props = ComponentPropsWithoutRef<'button'> &
   PropsWithChildren<{
     classesNames?: string
     title?: string
+    variant?: 'edit' | 'info' | 'primary' | 'remove' | 'submit' | 'outline' | 'toggle' | 'link'
   }>
-/**
- * @param isSearch: Default as false, case true input type='search' get another class attribute
- */
 
-export const Button = ({ children, classesNames, title, ...rest }: PropsWithChildren<Props>) => {
+export const Button = ({
+  children,
+  classesNames,
+  variant,
+  title,
+  ...rest
+}: PropsWithChildren<Props>) => {
   return (
-    <button className={classNames('btn', classesNames)} {...rest}>
+    <button className={classNames('btn', `btn-${variant}`, classesNames)} {...rest}>
       {title}
       {children}
     </button>

@@ -41,7 +41,14 @@ h5 {
 }
 
 p {
-  margin: spacing.$spacer-1 0 spacing.$spacer-3 0;
+  margin: spacing.$spacer-2 0;
+}
+
+hr {
+  border: 0;
+  background-color: adjust(color.$gray, $alpha: -.8);
+  height: 1px;
+  margin: spacing.$spacer-3 0;
 }
 
 ul {
