@@ -1,15 +1,18 @@
 export default async function ServerComponentsPage() {
   return (
     <>
-      <p>
-        By default, layouts and pages are <em className="color-is-gray">Server Components</em>,
-        which lets you fetch data and render parts of your UI on the server, optionally cache the
-        result, and stream it to the client.
-      </p>
-      <p>
-        When you need interactivity or browser APIs, you can use Client Components to layer in
-        functionality.
-      </p>
+      <ul>
+        <li>
+          By default, layouts and pages are{' '}
+          <em className="color-is-darkmagenta">Server Components</em>, which lets you fetch data and
+          render parts of your UI on the server, optionally cache the result, and stream it to the
+          client.
+        </li>
+        <li>
+          When you need interactivity or browser APIs, you can use Client Components to layer in
+          functionality.
+        </li>
+      </ul>
 
       <h4>Use Server Components when you need:</h4>
       <ul className="hasTypeDisc">

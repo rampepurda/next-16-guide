@@ -78,27 +78,6 @@
   }
 }
 
-.color-is {
-  &-black {
-    color: color.$black;
-  }
-
-  &-darkmagenta {
-    color: color.$darkmagenta;
-  }
-
-  &-gray {
-    color: color.$gray;
-  }
-
-  &-grayLight {
-    color: color.$grayLight;
-  }
-
-  &-red {
-    background-color: color.$red;
-  }
-}
 
 .bg-color-is {
   &-blackLight {
@@ -110,26 +89,8 @@
     background-color: color.$blueLighter;
   }
 
-  &-darkmagenta {
-    background-color: color.$darkmagenta;
-  }
-
   &-grayLight {
     background-color: color.$grayLight;
-  }
-
-  &-green {
-    background-color: color.$green;
-  }
-
-  &-orange {
-    background-color: color.$orange;
-    color: color.$white;
-  }
-
-  &-red {
-    background-color: color.$red;
-    color: color.$white;
   }
 }
 
@@ -142,7 +103,7 @@
 
   &-size-4 {
     border-radius: .7rem;
-    padding: .2rem .5rem;
+    padding: .2rem .7rem;
   }
 
   &-size-16 {
@@ -173,6 +134,13 @@
   }
 }
 
+.pre {
+  display: block;
+  margin: spacing.$spacer-2 0;
+  white-space: pre-wrap;
+  font-family: monospace;
+}
+
 .hasOutline {
   display: inline-block;
   margin: spacing.$spacer-4 0;
@@ -180,3 +148,4 @@
   outline: 1px solid adjust(color.$grayLight, $alpha: -.7);
   padding: 1.5rem;
 }
+

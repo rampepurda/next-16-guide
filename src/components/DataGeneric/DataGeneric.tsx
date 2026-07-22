@@ -12,7 +12,7 @@ export type DataRenderedProps<T> = HTMLAttributes<HTMLBodyElement> & {
   renderData: (item: T) => ReactNode
 }
 
-export const DataRendered = <T,>({
+export const DataGeneric = <T,>({
   HTMLAttributes,
   classesNames,
   renderData,
