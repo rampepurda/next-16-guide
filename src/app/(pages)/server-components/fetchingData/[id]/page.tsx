@@ -2,6 +2,7 @@ import { TypicodePostT } from '@/types/primary'
 import fetchApi from '@/utils/fetchApi'
 import { Loader } from '@/components'
 import { Metadata } from 'next'
+import { Divider } from '@/components/UI'
 
 export async function generateMetadata({
   params,
@@ -24,8 +25,8 @@ export default async function PostDetailPage({ params }: { params: Promise<{ id:
 
   return (
     <section>
-      <h4>Fetching data dynamically</h4>
-      <ul className="hasOutline">
+      <h3 className="color-is-gray">Fetching data dynamically</h3>
+      <ul className="hasOutline pre">
         <li>
           <strong className="color-is-grayLight">generate metadata:</strong>
         </li>
@@ -35,12 +36,14 @@ export default async function PostDetailPage({ params }: { params: Promise<{ id:
           export async function generateMetadata(&#123; params &#125;: &#123; params:
           Promise&lt;&#123; id: string &#125;&gt; &#125;): Promise&lt;Metadata&gt; &#125;
         </li>
-        <li>&nbsp;const {id} = await params</li>
+        <li>&nbsp;const &#123;id&#125; = await params</li>
         <li>&nbsp;&nbsp;return &#123;</li>
         <li>&nbsp;&nbsp;&nbsp;title: `Detail of Post $&#123;id&#125;`,</li>
         <li>&nbsp;&nbsp;&nbsp;description: ,</li>
         <li>&nbsp;&#125;</li>
-        <li>&nbsp;</li>
+        <li>
+          &nbsp; <Divider />
+        </li>
         <li>
           <strong className="color-is-grayLight">generated data:</strong>
         </li>

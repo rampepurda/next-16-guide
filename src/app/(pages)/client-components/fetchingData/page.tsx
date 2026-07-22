@@ -98,15 +98,6 @@ export default function ClientFetchingDataPage() {
         </li>
         <li>
           <h5>Page Dynamic Segment:</h5>
-          async function PostDetailPage(&#123; params &#125;: &#123; params: Promise&lt;&#123; id:
-          string &#125;&gt; &#125;) &#123;
-        </li>
-        <li>&nbsp;const &#123;id&#125; = await params</li>
-        <li>&#125;</li>
-        <li>
-          <Divider />
-        </li>
-        <li>
           <h5>Result:</h5>
           <Suspense fallback={<Loader />}>
             <DataGeneric

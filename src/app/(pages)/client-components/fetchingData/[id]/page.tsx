@@ -22,7 +22,10 @@ export default function PostDetailPage({ params }: { params: Promise<{ id: strin
 
   return (
     <section>
-      <h4>fetch Api Data - detail</h4>
+      <h3 className="color-is-gray">
+        fetch Api Data/<em>detail</em>
+      </h3>
+
       <ul className="pre hasOutline">
         <li>
           function PostDetailPage(&#123; params &#125;: &#123;
